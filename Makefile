@@ -119,17 +119,17 @@ clean:
 install:
 	@echo "Installing $(PKG_NAME)..."
 
-	install -Dm755 target/release/gpclient $(DESTDIR)/usr/bin/gpclient
-	install -Dm755 target/release/gpauth $(DESTDIR)/usr/bin/gpauth
-	install -Dm755 target/release/gpservice $(DESTDIR)/usr/bin/gpservice
+	install -Dm755 target/release/gpclient $(DESTDIR)/usr/local/bin/gpclient
+	install -Dm755 target/release/gpauth $(DESTDIR)/usr/local/bin/gpauth
+	install -Dm755 target/release/gpservice $(DESTDIR)/usr/local/bin/gpservice
 
 	# Install the GUI components if BUILD_GUI is set to 1
 	if [ $(BUILD_GUI) -eq 1 ]; then \
-		install -Dm755 target/release/gpgui-helper $(DESTDIR)/usr/bin/gpgui-helper; \
+		install -Dm755 target/release/gpgui-helper $(DESTDIR)/usr/local/bin/gpgui-helper; \
 	fi
 
 	if [ -f .build/gpgui/gpgui_*/gpgui ]; then \
-		install -Dm755 .build/gpgui/gpgui_*/gpgui $(DESTDIR)/usr/bin/gpgui; \
+		install -Dm755 .build/gpgui/gpgui_*/gpgui $(DESTDIR)/usr/local/bin/gpgui; \
 	fi
 
 	# Install the disconnect hooks
